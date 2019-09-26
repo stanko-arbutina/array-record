@@ -1,0 +1,17 @@
+{
+  "name": "array-record",
+  "version": "0.0.1",
+  "description": "Tiny helper for converting between array and object representation of record-like data",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test.js"
+  },
+  "author": "Stanko Arbutina",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
