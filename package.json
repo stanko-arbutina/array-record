@@ -4,7 +4,7 @@
   "description": "Tiny helper for converting between array and object representation of record-like data",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test.js",
+    "test": "./node_modules/mocha/bin/mocha test/index.js",
     "lint": "./node_modules/.bin/eslint **/*.js"
   },
   "author": "Stanko Arbutina",
