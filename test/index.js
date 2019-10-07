@@ -10,6 +10,7 @@ describe('RecordConverter', () => {
     describe('.indexOf()', () => require('./index_of')(converter));
     describe('.keys()', () => require('./keys')(converter));
     describe('.keyIndexMap()', () => require('./key_index_map')(converter));
+    describe('.length', () => require('./length')(converter));
   });
 
 });

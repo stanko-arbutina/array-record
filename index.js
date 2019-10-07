@@ -58,7 +58,8 @@ function RecordConverter(...keys){
       const toReturn = new Map();
       keys.forEach((key, index) => toReturn.set(key, index));
       return toReturn;
-    }
+    },
+    length: keys.length
   }
 
 }
