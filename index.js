@@ -42,6 +42,12 @@ function RecordConverter(...keys){
       const indexOf = keys.indexOf(key);
       if (indexOf >= 0) return indexOf;
       return null;
+    },
+    keys(){
+      if (arguments.length) {
+        throw new TypeError('Should be called without arguments');
+      }
+      return keys.slice(0);
     }
   }
 

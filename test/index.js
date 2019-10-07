@@ -8,6 +8,7 @@ describe('RecordConverter', () => {
     describe('.arrayFromObject()', () => require('./array_from_object')(converter));
     describe('.keyAt()', () => require('./key_at')(converter));
     describe('.indexOf()', () => require('./index_of')(converter));
+    describe('.keys()', () => require('./keys')(converter));
   });
 
 });
