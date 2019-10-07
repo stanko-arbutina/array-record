@@ -1,13 +1,35 @@
 {
   "name": "array-record",
   "version": "0.0.1",
-  "description": "Tiny helper for converting between array and object representation of record-like data",
+  "description": "Centralize the synchronization of position and name based keys for record-like objects",
+  "keywords": [
+    "record",
+    "row",
+    "tuple",
+    "sequence",
+    "data structure",
+    "object",
+    "mapper",
+    "array"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test/index.js",
     "lint": "./node_modules/.bin/eslint **/*.js"
   },
-  "author": "Stanko Arbutina",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stanko-arbutina/array-record.git"
+  },
+  "author": {
+    "name": "Stanko Arbutina",
+    "email": "stanko.arbutina@gmail.com",
+    "url": "https://github.com/stanko-arbutina"
+  },
+  "homepage": "https://github.com/stanko-arbutina/array-record",
+  "bugs": {
+    "url": "https://github.com/stanko-arbutina/array-record/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "eslint": "^6.5.1",
