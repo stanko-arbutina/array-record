@@ -1,9 +1,9 @@
 const assert = require('assert');
-const assertThrowsKeysArgumentError = fn => assert.throws(fn, /^TypeError: Should be called without arguments$/);
+const assertThrowsOnArgumentsError = require('./helpers/asset_throws_on_arguments');
 
 module.exports = (converter) => {
     it('Throws error if arguments provided', () => {
-        assertThrowsKeysArgumentError(() => converter.keys('bla'))
+        assertThrowsOnArgumentsError(() => converter.keys('bla'))
     });
 
     it('Returns an array containing keys in original order', () => {

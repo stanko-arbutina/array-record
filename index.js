@@ -6,6 +6,12 @@ function ensureNonBlank(obj) {
   }
 }
 
+function ensureNoArguments(arguments){
+  if (arguments.length) {
+    throw new TypeError('Should be called without arguments');
+  }
+}
+
 function RecordConverter(...keys){
   if ((keys.length == 0) || keys.some(key => !isString(key) || !key) || (uniq(keys).length) < keys.length) {
     throw new TypeError('Arguments should be one or more unique non-empty strings');
@@ -44,10 +50,14 @@ function RecordConverter(...keys){
       return null;
     },
     keys(){
-      if (arguments.length) {
-        throw new TypeError('Should be called without arguments');
-      }
+      ensureNoArguments(arguments);
       return keys.slice(0);
+    },
+    keyIndexMap(){
+      ensureNoArguments(arguments);
+      const toReturn = new Map();
+      keys.forEach((key, index) => toReturn.set(key, index));
+      return toReturn;
     }
   }
 
