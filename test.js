@@ -3,6 +3,8 @@ const RecordConverter = require('./index');
 
 const assertThrowsBlankArgumentError = fn => assert.throws(fn, /^TypeError: Blank\/falsy argument$/)
 const assertThrowsInvalidRecordConverterArgumentError = fn => assert.throws(fn, /^TypeError: Arguments should be one or more unique non-empty strings$/)
+const assertThrowsKeyAtArgumentError = fn => assert.throws(fn, /^TypeError: Accept single non-negative integer as an argument$/)
+const assertThrowsIndexOfArgumentError = fn => assert.throws(fn, /^TypeError: Accept single non-empty string as an argument$/)
 
 describe('RecordConverter', () => {
 
@@ -85,6 +87,52 @@ describe('RecordConverter', () => {
         });
       });
     })
+
+    describe('.keyAt()', () => {
+      it('Throws error if no arguments provided', () => {
+        assertThrowsKeyAtArgumentError(() => converter.keyAt())
+      });
+      it('Throws error if multiple arguments provided', () => {
+        assertThrowsKeyAtArgumentError(() => converter.keyAt(2,3))
+      });
+      it('Throws error if string argument provided', () => {
+        assertThrowsKeyAtArgumentError(() => converter.keyAt('one'))
+      });
+      it('Throws error if float argument provided', () => {
+        assertThrowsKeyAtArgumentError(() => converter.keyAt(3.2))
+      });
+      it('Throws error if negative argument provided', () => {
+        assertThrowsKeyAtArgumentError(() => converter.keyAt(-5))
+      });
+      it('Returns null if index is too big', () => {
+        assert.equal(converter.keyAt(5), null);
+      });
+      it('Key for provided index if it exists', () => {
+        assert.equal(converter.keyAt(2), 'address');
+      });
+    });
+
+    describe('.indexOf()', () => {
+      // valid argument - single string
+      it('Throws error if no arguments provided', () => {
+        assertThrowsIndexOfArgumentError(() => converter.indexOf())
+      });
+      it('Throws error if multiple arguments provided', () => {
+        assertThrowsIndexOfArgumentError(() => converter.indexOf('age', 'address'))
+      });
+      it('Throws error if integer argument provided', () => {
+        assertThrowsIndexOfArgumentError(() => converter.indexOf(2))
+      });
+      it('Throws error if empty string argument provided', () => {
+        assertThrowsIndexOfArgumentError(() => converter.indexOf(''))
+      });
+      it('Returns null if called with non-existing key', () => {
+        assert.equal(converter.indexOf('street'), null);
+      });
+      it('Returns index of existing key', () => {
+        assert.equal(converter.indexOf('address'), 2);
+      });
+    });
   });
 
 });

@@ -1,4 +1,4 @@
-const { isString, isObject, uniq } = require('lodash');
+const { isString, isObject, uniq, isInteger } = require('lodash');
 
 function ensureNonBlank(obj) {
   if (!obj) {
@@ -27,6 +27,21 @@ function RecordConverter(...keys){
         throw new TypeError('Argument should be an object');
       }
       return keys.map(keyName => obj[keyName] || null);
+    },
+    keyAt(index) {
+      if ((arguments.length != 1) || (!isInteger(index)) || (index < 0)) {
+        throw new TypeError('Accept single non-negative integer as an argument');
+      }
+
+      return keys[index] || null;
+    },
+    indexOf(key){
+      if ((arguments.length != 1) || (!isString(key)) || (!key.length)) {
+        throw new TypeError('Accept single non-empty string as an argument');
+      }
+      const indexOf = keys.indexOf(key);
+      if (indexOf >= 0) return indexOf;
+      return null;
     }
   }
 
