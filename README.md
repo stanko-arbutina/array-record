@@ -1,7 +1,6 @@
 # array-record
 
-Tiny utility for working with record-like data structures. Extracted from a private project. 
-
+Tiny utility for working with record-like data structures.
 ## Installation
 
 `npm install array-record`
